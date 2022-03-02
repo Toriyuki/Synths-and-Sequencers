@@ -7,7 +7,7 @@ let addButton, subtractButton;
 function setup() {
   createCanvas(600, 400);
 
-  delay = new Tone.FeedbackDelay("16n", 0).toDestination();
+  delay = new Tone.FeedbackDelay("8n", 0).toDestination();
   synth = new Tone.PolySynth().connect(delay);
 
   octive = 4; 
