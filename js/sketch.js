@@ -1,6 +1,6 @@
 let synth;
 let delay;
-let octive;
+let octave;
 let slider;
 let addButton, subtractButton;
 
@@ -10,17 +10,17 @@ function setup() {
   delay = new Tone.FeedbackDelay("8n", 0).toDestination();
   synth = new Tone.PolySynth().connect(delay);
 
-  octive = 4; 
+  octave = 4; 
 
   addButton = createButton("+");
   addButton.size(100, 50);
   addButton.position(475, 150);
-  addButton.mousePressed(addOctive);
+  addButton.mousePressed(addOctave);
 
   subtractButton = createButton("-");
   subtractButton.size(100, 50);
   subtractButton.position(475, 300);
-  subtractButton.mousePressed(subtractOctive);
+  subtractButton.mousePressed(subtractOctave);
 
   slider = createSlider(0, .5, 0, .05);
   slider.mouseReleased( () => {
@@ -36,8 +36,8 @@ function draw() {
 
 
   textSize(40);
-  text("Octive", 465, 145);
-  text(octive, 515, 265);
+  text("Octave", 465, 145);
+  text(octave, 515, 265);
 
   textSize(30);
   text("Feedback", 5, 395);
@@ -77,74 +77,74 @@ function draw() {
 
 }
 
-function addOctive() {
-  if(octive < 7)
-    octive++;
+function addOctave() {
+  if(octave < 7)
+    octave++;
 }
 
-function subtractOctive() {
-  if(octive > 0)
-    octive--;
+function subtractOctave() {
+  if(octave > 0)
+    octave--;
 }
 
 function keyPressed() {
   if(keyCode == 65)
-    synth.triggerAttackRelease("C" + octive, "8n");
+    synth.triggerAttackRelease("C" + octave, "8n");
   else if(keyCode == 87)
-    synth.triggerAttackRelease("C#" + octive, "8n");
+    synth.triggerAttackRelease("C#" + octave, "8n");
   else if(keyCode == 83) 
-    synth.triggerAttackRelease("D" + octive, "8n");
+    synth.triggerAttackRelease("D" + octave, "8n");
   else if(keyCode == 69)
-    synth.triggerAttackRelease("D#" + octive, "8n");
+    synth.triggerAttackRelease("D#" + octave, "8n");
   else if(keyCode == 68)
-    synth.triggerAttackRelease("E" + octive, "8n");
+    synth.triggerAttackRelease("E" + octave, "8n");
   else if(keyCode == 70)
-    synth.triggerAttackRelease("F" + octive, "8n");
+    synth.triggerAttackRelease("F" + octave, "8n");
   else if(keyCode == 84)
-    synth.triggerAttackRelease("F#" + octive, "8n");
+    synth.triggerAttackRelease("F#" + octave, "8n");
   else if(keyCode == 71)
-    synth.triggerAttackRelease("G" + octive, "8n");
+    synth.triggerAttackRelease("G" + octave, "8n");
   else if(keyCode == 89)
-    synth.triggerAttackRelease("G#" + octive, "8n");
+    synth.triggerAttackRelease("G#" + octave, "8n");
   else if(keyCode == 72)
-    synth.triggerAttackRelease("A" + octive, "8n");
+    synth.triggerAttackRelease("A" + octave, "8n");
   else if(keyCode == 85)
-    synth.triggerAttackRelease("A#" + octive, "8n");
+    synth.triggerAttackRelease("A#" + octave, "8n");
   else if(keyCode == 74)
-    synth.triggerAttackRelease("B" + octive, "8n");
+    synth.triggerAttackRelease("B" + octave, "8n");
   else if(keyCode == 75)
-    synth.triggerAttackRelease("C" + (octive+1), "8n");
+    synth.triggerAttackRelease("C" + (octave+1), "8n");
   else if(keyCode == 187)
-    addOctive();
+    addOctave();
   else if(keyCode == 189)
-    subtractOctive();
+    subtractOctave();
 }
 
 function mousePressed() {
   if((mouseX > 50) && (mouseX < 100) && (mouseY > 275) && (mouseY < 350))
-    synth.triggerAttackRelease("C" + octive, "8n");
+    synth.triggerAttackRelease("C" + octave, "8n");
   else if((mouseX > 80) && (mouseX < 120) && (mouseY > 150) && (mouseY < 275))
-    synth.triggerAttackRelease("C#" + octive, "8n");
+    synth.triggerAttackRelease("C#" + octave, "8n");
   else if((mouseX > 100) && (mouseX < 150) && (mouseY > 275) && (mouseY < 350)) 
-    synth.triggerAttackRelease("D" + octive, "8n");
+    synth.triggerAttackRelease("D" + octave, "8n");
   else if((mouseX > 130) && (mouseX < 170) && (mouseY > 150) && (mouseY < 275))
-    synth.triggerAttackRelease("D#" + octive, "8n");
+    synth.triggerAttackRelease("D#" + octave, "8n");
   else if((mouseX > 150) && (mouseX < 200) && (mouseY > 275) && (mouseY < 350))
-    synth.triggerAttackRelease("E" + octive, "8n");
+    synth.triggerAttackRelease("E" + octave, "8n");
   else if((mouseX > 200) && (mouseX < 250) && (mouseY > 275) && (mouseY < 350))
-    synth.triggerAttackRelease("F" + octive, "8n");
+    synth.triggerAttackRelease("F" + octave, "8n");
   else if((mouseX > 230) && (mouseX < 270) && (mouseY > 150) && (mouseY < 275))
-    synth.triggerAttackRelease("F#" + octive, "8n");
+    synth.triggerAttackRelease("F#" + octave, "8n");
   else if((mouseX > 250) && (mouseX < 300) && (mouseY > 275) && (mouseY < 350))
-    synth.triggerAttackRelease("G" + octive, "8n");
+    synth.triggerAttackRelease("G" + octave, "8n");
   else if((mouseX > 280) && (mouseX < 320) && (mouseY > 150) && (mouseY < 275))
-    synth.triggerAttackRelease("G#" + octive, "8n");
+    synth.triggerAttackRelease("G#" + octave, "8n");
   else if((mouseX > 300) && (mouseX < 350) && (mouseY > 275) && (mouseY < 350))
-    synth.triggerAttackRelease("A" + octive, "8n");
+    synth.triggerAttackRelease("A" + octave, "8n");
   else if((mouseX > 330) && (mouseX < 370) && (mouseY > 150) && (mouseY < 275))
-    synth.triggerAttackRelease("A#" + octive, "8n");
+    synth.triggerAttackRelease("A#" + octave, "8n");
   else if((mouseX > 350) && (mouseX < 400) && (mouseY > 275) && (mouseY < 350))
-    synth.triggerAttackRelease("B" + octive, "8n");
+    synth.triggerAttackRelease("B" + octave, "8n");
   else if((mouseX > 400) && (mouseX < 450) && (mouseY > 275) && (mouseY < 350))
-    synth.triggerAttackRelease("C" + (octive+1), "8n");
+    synth.triggerAttackRelease("C" + (octave+1), "8n");
 }
